@@ -1,22 +1,36 @@
+import { HiBell, HiBan, HiCheckCircle } from "react-icons/hi";
 import Button from "./Button";
 
 function App() {
+    const handleClick = () => {
+        console.log('click')
+    };
+
     return(
         <div>
             <div>
-                <Button success primary>Hi there!</Button>
+                <Button primary rounded onClick={handleClick}>
+                    <HiBell />
+                    Hi there!
+                </Button>
             </div>
             <div>
-                <Button>See Deal!</Button>
+                <Button secondary rounded>
+                    <HiBan />
+                    See Deal!
+                </Button>
             </div>
             <div>
-                <Button>Hide Ads!</Button>
+                <Button rounded success>
+                    <HiCheckCircle />
+                    Hide Ads!
+                </Button>
             </div>
             <div>
-                <Button>Something!</Button>
+                <Button warning>Something!</Button>
             </div>
             <div>
-                <Button>Hello!</Button>
+                <Button danger>Hello!</Button>
             </div>
         </div>
     );
