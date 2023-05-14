@@ -2,14 +2,10 @@ import { HiBell, HiBan, HiCheckCircle } from "react-icons/hi";
 import Button from "./Button";
 
 function App() {
-    const handleClick = () => {
-        console.log('click')
-    };
-
     return(
         <div>
             <div>
-                <Button primary rounded onClick={handleClick}>
+                <Button primary rounded>
                     <HiBell />
                     Hi there!
                 </Button>
