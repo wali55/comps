@@ -5,7 +5,7 @@ function App() {
     return(
         <div>
             <div>
-                <Button primary rounded>
+                <Button primary rounded className="mb-5">
                     <HiBell />
                     Hi there!
                 </Button>
