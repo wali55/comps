@@ -7,6 +7,7 @@ function Dropdown({ options, value, onChange }) {
     
     const handleClick = () => {
         setIsOpen(!isOpen);
+        console.log('clicked')
     };
 
     const handleOptionClick = (option) => {
