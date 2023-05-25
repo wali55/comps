@@ -16,6 +16,7 @@ function App() {
 
     return(
         <div className="flex">
+            <a href="/dashboard">Dashboard</a>
             <Dropdown value={selection} onChange={handleSelect} options={options} />
             <Dropdown value={selection} onChange={handleSelect} options={options} />
         </div>
