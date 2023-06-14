@@ -17,7 +17,6 @@ function Link({ to, children, className, activeClassName }) {
         event.preventDefault();
 
         navigate(to);
-        console.log(to);
     };
 
     return(
