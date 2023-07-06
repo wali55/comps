@@ -4,6 +4,8 @@ const data = [
     { name: 'Onion', cost: 5, weight: 7 },
 ];
 
+console.log(data);
+
 function getSortValue(vegetable) {
     return vegetable.name;
 }
