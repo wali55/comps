@@ -4,19 +4,21 @@ const data = [
     { name: 'Onion', cost: 5, weight: 7 },
 ];
 
-console.log(data);
-
 function getSortValue(vegetable) {
-    return vegetable.name;
+    return vegetable.cost;
 }
+
+const sortOrder = 'desc';
 
 data.sort((a, b) => {
     const valueA = getSortValue(a);
     const valueB = getSortValue(b);
 
+    const reverseOrder = sortOrder === 'asc' ? 1 : -1;
+
     if (typeof valueA === 'string') {
-        return valueA.localeCompare(valueB);
+        return valueA.localeCompare(valueB) * reverseOrder;
     } else {
-        return valueA - valueB;
+        return (valueA - valueB) * reverseOrder;
     }
 }); 
