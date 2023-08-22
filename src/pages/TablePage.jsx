@@ -10,18 +10,20 @@ function TablePage() {
     ];
 
     const config = [
-        { 
-            label: 'Name',
-            render: (fruit) => fruit.name
-        },
-        { 
-            label: 'Color',
-            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`} />
-        },
-        { 
-            label: 'Score',
-            render: (fruit) => fruit.score
-        },
+      {
+        label: "Name",
+        render: (fruit) => fruit.name,
+        sortValue: (fruit) => fruit.name,
+      },
+      {
+        label: "Color",
+        render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`} />,
+      },
+      {
+        label: "Score",
+        render: (fruit) => fruit.score,
+        sortValue: (fruit) => fruit.score,
+      },
     ];
 
     const keyFn = (fruit) => {
