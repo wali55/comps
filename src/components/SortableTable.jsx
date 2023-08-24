@@ -14,7 +14,7 @@ function SortableTable(props) {
 
     return {
         ...column,
-        header: () => <th>{column.label} is sortable</th>
+        header: () => <th onClick={() => handleClick(column.label)}>{column.label} is sortable</th>
     }
   })
 
