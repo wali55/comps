@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Table from './Table';
+import { GoTriangleUp, GoTriangleDown } from 'react-icons/go';
 
 function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
@@ -8,6 +9,12 @@ function SortableTable(props) {
   const { config, data } = props;
 
   const handleClick = (label) => {
+    if (sortBy && label !== sortBy) {
+      setSortOrder('asc');
+      setSortBy(label);
+      return;
+    }
+
     if (sortOrder === null) {
       setSortOrder('asc');
       setSortBy(label);
@@ -28,9 +35,14 @@ function SortableTable(props) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)}>
-          {getIcons(column.label, sortBy, sortOrder)}
-          {column.label}
+        <th
+          className="cursor-pointer hover:bg-gray-100"
+          onClick={() => handleClick(column.label)}
+        >
+          <div className="flex items-center">
+            {getIcons(column.label, sortBy, sortOrder)}
+            <span className="ml-2">{column.label}</span>
+          </div>
         </th>
       ),
     };
@@ -57,25 +69,38 @@ function SortableTable(props) {
     });
   }
 
-  return (
-    <div>
-      {sortOrder} - {sortBy}
-      <Table {...props} data={sortedData} config={updatedConfig} />
-    </div>
-  );
+  return <Table {...props} data={sortedData} config={updatedConfig} />;
 }
 
 function getIcons(label, sortBy, sortOrder) {
   if (label !== sortBy) {
-    return 'both';
+    return (
+      <div>
+        <GoTriangleUp />
+        <GoTriangleDown />
+      </div>
+    );
   }
 
   if (sortOrder === null) {
-    return 'both';
+    return (
+      <div>
+        <GoTriangleUp />
+        <GoTriangleDown />
+      </div>
+    );
   } else if (sortOrder === 'asc') {
-    return 'up';
+    return (
+      <div>
+        <GoTriangleUp />
+      </div>
+    );
   } else if (sortOrder === 'desc') {
-    return 'down';
+    return (
+      <div>
+        <GoTriangleDown />
+      </div>
+    );
   }
 }
 
