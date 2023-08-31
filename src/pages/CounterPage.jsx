@@ -12,6 +12,8 @@ const CounterPage = ({ initialCount }) => {
     setCount(count + 1);
   };
 
+  console.log(count)
+
   return (
     <div>
       <h1>Count is: {count}</h1>
