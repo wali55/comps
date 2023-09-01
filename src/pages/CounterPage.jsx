@@ -13,6 +13,7 @@ const CounterPage = ({ initialCount }) => {
   };
 
   console.log(count)
+  console.log(count + 1)
 
   return (
     <div>
